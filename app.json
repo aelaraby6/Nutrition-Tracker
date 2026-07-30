@@ -37,6 +37,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "806fc75d-cc78-4265-bdd0-8762b4c9e2b0"
+      }
+    },
+    "owner": "aelarabys-team"
   }
 }
