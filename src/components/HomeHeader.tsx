@@ -12,7 +12,7 @@ export default function HomeHeader() {
     return (
         <View style={styles.container}>
             <Text style={[styles.date, { color: colors.textSecondary }]}>{currentDate.toUpperCase()}</Text>
-            <Text style={[styles.welcome, { color: colors.text }]}>Today's Summary</Text>
+            <Text style={[styles.welcome, { color: colors.text }]}>{"Today's Summary"}</Text>
         </View>
     );
 }
