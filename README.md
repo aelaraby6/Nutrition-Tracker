@@ -14,7 +14,7 @@ Below is a side-by-side comparison of the application interface under both light
 | :--- | :---: | :---: |
 | **Home Dashboard** | <img src="assets/screenshots/home-light.jpg" width="280" alt="Home Screen Light Mode" /> | <img src="assets/screenshots/home-dark.jpg" width="280" alt="Home Screen Dark Mode" /> |
 | **Log Meal Form** | <img src="assets/screenshots/add-meal-light.jpg" width="280" alt="Add Meal Screen Light Mode" /> | <img src="assets/screenshots/add-meal-dark.jpg" width="280" alt="Add Meal Screen Dark Mode" /> |
-| **Meal History** | _N/A_ | <img src="assets/screenshots/all-meals-dark.jpg" width="280" alt="All Meals Screen Dark Mode" /> |
+| **Meal History** | <img src="assets/screenshots/all-meals-light.png" width="280" alt="All Meals Screen Light Mode" /> | <img src="assets/screenshots/all-meals-dark.jpg" width="280" alt="All Meals Screen Dark Mode" /> |
 
 ---
 
@@ -26,6 +26,18 @@ Below is a side-by-side comparison of the application interface under both light
 * **Structured Clipboard Export:** Generates a formatted text summary of your daily nutritional intake, ready to be shared with trainers or logged elsewhere.
 * **Intelligent Reminders:** Integrated push notification toggles to prompt daily meal logging.
 * **Persistent Offline Storage:** High-performance local storage powered by Async Storage ensures data is preserved securely on-device.
+
+---
+
+## Technology Stack
+
+This project utilizes the following modern tools and frameworks:
+- **React Native & Expo (v57):** Cross-platform mobile development framework.
+- **Expo Router:** File-based navigation system for clean, routing-based page architectures.
+- **TypeScript:** Typed JavaScript extension for enhanced development reliability and compile-time safety.
+- **React Native Reanimated:** Declarative animations framework for smooth transition gestures.
+- **Expo Notifications:** Local push notification reminders scheduling.
+- **Async Storage:** Persistent asynchronous key-value data storage on-device.
 
 ---
 
