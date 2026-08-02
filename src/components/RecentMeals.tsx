@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Meal } from '@/storage/meals';
 import MealItem from './MealItem';
+import { useTheme } from '@/context/ThemeContext';
 
 type RecentMealsProps = {
   meals: Meal[];
@@ -8,11 +9,13 @@ type RecentMealsProps = {
 };
 
 export default function RecentMeals({ meals, onDelete }: RecentMealsProps) {
+  const { colors } = useTheme();
+
   return (
-    <View style={{ marginTop: 30 }}>
-      <Text style={styles.sectionTitle}>Recent Meals</Text>
+    <View style={{ marginTop: 32 }}>
+      <Text style={[styles.sectionTitle, { color: colors.text }]}>Recent Meals</Text>
       {meals.length === 0 ? (
-        <Text style={styles.empty}>No meals logged yet.</Text>
+        <Text style={[styles.empty, { color: colors.textSecondary }]}>No meals logged today.</Text>
       ) : (
         meals
           .slice(0, 5)
@@ -36,12 +39,14 @@ export default function RecentMeals({ meals, onDelete }: RecentMealsProps) {
 const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#ffffff',
-    marginBottom: 16,
+    fontWeight: '700',
+    marginBottom: 14,
+    letterSpacing: -0.2,
   },
   empty: {
-    color: '#a0a0b0',
     fontSize: 14,
+    fontStyle: 'italic',
+    textAlign: 'center',
+    paddingVertical: 20,
   },
 });
