@@ -1,6 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import { Meal } from '@/storage/meals';
 import MacroCard from './MacroCard';
+import { macroColors } from '@/styles/theme';
 
 type MacroGridProps = {
   meals: Meal[];
@@ -23,25 +24,25 @@ export default function MacroGrid({ meals }: MacroGridProps) {
         label='Calories'
         value={`${totals.calories}`}
         goal='2,000'
-        color='#ff6b6b'
+        color={macroColors.calories}
       />
       <MacroCard
         label='Protein'
         value={`${totals.protein}g`}
         goal='150g'
-        color='#4ecdc4'
+        color={macroColors.protein}
       />
       <MacroCard
         label='Carbs'
         value={`${totals.carbs}g`}
         goal='250g'
-        color='#ffd93d'
+        color={macroColors.carbs}
       />
       <MacroCard
         label='Fat'
         value={`${totals.fat}g`}
         goal='65g'
-        color='#6bcb77'
+        color={macroColors.fat}
       />
     </View>
   );
@@ -51,6 +52,8 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
+    justifyContent: 'space-between',
+    rowGap: 12,
+    marginTop: 8,
   },
 });

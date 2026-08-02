@@ -1,41 +1,42 @@
 import { StyleSheet } from 'react-native';
+import { themes } from './theme';
 
-export const colors = {
-    background: '#1a1a2e',
-    header: '#242444',
-    surface: '#2a2a4a',
-    primary: '#4fc3f7',
-    text: '#ffffff',
-    textSecondary: '#a0a0b0',
-    alert: '#ff5252',
-};
+// Legacy colors for compatibility
+export const colors = themes.dark;
 
-export const globalStyles = StyleSheet.create({
+export const getGlobalStyles = (themeColors: typeof themes.dark) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.background,
+        backgroundColor: themeColors.background,
         paddingTop: 60,
         paddingHorizontal: 20,
     },
     title: {
         fontSize: 28,
-        fontWeight: 'bold',
-        color: colors.text,
+        fontWeight: '800',
+        color: themeColors.text,
+        letterSpacing: -0.5,
     },
     sectionTitle: {
-        fontSize: 18,
-        fontWeight: '600',
-        color: colors.textSecondary,
-        marginTop: 30,
+        fontSize: 20,
+        fontWeight: '700',
+        color: themeColors.text,
+        marginTop: 32,
         marginBottom: 16,
     },
     empty: {
-        color: colors.textSecondary,
-        fontSize: 14,
+        color: themeColors.textSecondary,
+        fontSize: 15,
+        textAlign: 'center',
+        marginTop: 20,
+        fontStyle: 'italic',
     },
     header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: 8,
     },
 });
+
+export const globalStyles = getGlobalStyles(themes.dark);

@@ -1,56 +1,110 @@
-# Welcome to your Expo app 👋
+# Nutrition Tracker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern, high-fidelity mobile application built with React Native and Expo, designed to help users track daily caloric intake, monitor macronutrient distributions (proteins, carbohydrates, and fats), and build healthier dietary habits. The application features a premium user interface with seamless adaptive dark and light themes, local notifications, copy-to-clipboard summary generation, and persistent data storage.
 
-## Get started
+---
 
-1. Install dependencies
+## Interface Showcase
 
+Below is a side-by-side comparison of the application interface under both light and dark system configurations.
+
+### Light and Dark Theme Comparison
+
+| Screen | Light Theme | Dark Theme |
+| :--- | :---: | :---: |
+| **Home Dashboard** | <img src="assets/screenshots/home-light.jpg" width="280" alt="Home Screen Light Mode" /> | <img src="assets/screenshots/home-dark.jpg" width="280" alt="Home Screen Dark Mode" /> |
+| **Log Meal Form** | <img src="assets/screenshots/add-meal-light.jpg" width="280" alt="Add Meal Screen Light Mode" /> | <img src="assets/screenshots/add-meal-dark.jpg" width="280" alt="Add Meal Screen Dark Mode" /> |
+| **Meal History** | _N/A_ | <img src="assets/screenshots/all-meals-dark.jpg" width="280" alt="All Meals Screen Dark Mode" /> |
+
+---
+
+## Core Capabilities
+
+* **Dynamic Macronutrient Visualization:** Real-time feedback on daily targets for Calories, Protein, Carbs, and Fats using native progress indicators.
+* **Unified Theme Engine:** Dynamic dark and light styling options crafted with tailored color palettes for maximum readability and visual appeal.
+* **Granular Meal Logging:** Quick entry modal/form to register meal names, calories, and optional carbohydrate, protein, and fat distributions.
+* **Structured Clipboard Export:** Generates a formatted text summary of your daily nutritional intake, ready to be shared with trainers or logged elsewhere.
+* **Intelligent Reminders:** Integrated push notification toggles to prompt daily meal logging.
+* **Persistent Offline Storage:** High-performance local storage powered by Async Storage ensures data is preserved securely on-device.
+
+---
+
+## Technical Specifications & Getting Started
+
+### System Prerequisites
+
+Ensure you have Node.js and npm installed on your workstation.
+
+### Installation Walkthrough
+
+1. Clone the project repository:
+   ```bash
+   git clone <repository-url>
+   cd nutrition-tracker
+   ```
+
+2. Retrieve local dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
+### Execution
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+Launch the local development workspace:
 ```bash
-npm run reset-project
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Use the terminal commands to target your preferred environment:
+- **Android Emulator:** Press `a`
+- **iOS Simulator:** Press `i`
+- **Web Interface:** Press `w`
+- **Physical Device:** Scan the displayed QR code using the Expo Go companion application.
 
-### Other setup steps
+---
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Asset Customization for Production APK Builds
 
-## Learn more
+To configure a custom app logo that displays correctly on the device launcher post-installation:
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1. Preparation of Asset Specifications
+Verify that your graphic assets meet the following criteria:
+- **Default Application Icon:** Square PNG, exactly 1024x1024 pixels.
+- **Android Adaptive Foreground:** Transparent PNG, 1024x1024 pixels. Place critical icon graphics inside the safe zone (central 66% circle) to prevent cropping across launcher shapes.
+- **Android Adaptive Background:** PNG, 1024x1024 pixels (e.g., solid color, texture, or pattern).
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 2. File Location Setup
+Overwrite the default placeholder assets in the assets directory:
+- Place the general icon at: `assets/images/icon.png`
+- Place the Android adaptive foreground image at: `assets/images/android-icon-foreground.png`
+- Place the Android adaptive background image at: `assets/images/android-icon-background.png`
 
-## Join the community
+### 3. Application Configuration Update
+Ensure your configuration in `app.json` maps to the specified asset paths:
+```json
+{
+  "expo": {
+    "icon": "./assets/images/icon.png",
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE", 
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png"
+      }
+    }
+  }
+}
+```
+*Note: If a background image is not desired, omit the `backgroundImage` property and specify a hex code in `backgroundColor`.*
 
-Join our community of developers creating universal apps.
+### 4. Build Initiation
+Execute the production preview build via EAS (Expo Application Services):
+```bash
+eas build -p android --profile preview
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## License
+
+This software is distributed under the MIT License. Refer to the LICENSE file for details.
