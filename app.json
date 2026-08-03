@@ -42,7 +42,8 @@
             "enableShrinkResourcesInReleaseBuilds": true
           }
         }
-      ]
+      ],
+      "./plugins/withAndroidBuildTweaks"
     ],
     "experiments": {
       "typedRoutes": true,
